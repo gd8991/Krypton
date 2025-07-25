@@ -17,7 +17,6 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
 header {
   background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
   color: white;
@@ -79,7 +78,6 @@ header::before {
   gap: 8px;
 }
 
-/* Hero Section */
 .hero {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
@@ -141,7 +139,6 @@ header::before {
   box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
 }
 
-/* Services Grid */
 .services {
   padding: 4rem 0;
   background: white;
@@ -216,7 +213,6 @@ header::before {
   line-height: 1.6;
 }
 
-/* Products Grid */
 .products {
   padding: 4rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -276,7 +272,6 @@ header::before {
   display: block;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -325,7 +320,6 @@ header::before {
   color: #c41e3a;
 }
 
-/* Contact Section */
 .contact {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
@@ -359,7 +353,6 @@ header::before {
   color: #ff6b6b;
 }
 
-/* Footer */
 footer {
   background: #1a1a1a;
   color: white;
@@ -367,7 +360,6 @@ footer {
   padding: 2rem 0;
 }
 
-/* Animations */
 @keyframes slideInDown {
   from {
     transform: translateY(-30px);
@@ -392,7 +384,6 @@ footer {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
