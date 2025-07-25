@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krypton Enterprises - Printing & Business Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.06)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo .k {
+            color: #ff6b6b;
+            font-style: italic;
+        }
+
+        .contact-info {
+            text-align: right;
+        }
+
+        .contact-info div {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(196, 30, 58, 0.2) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #c41e3a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Products Grid */
+        .products {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: #c41e3a;
+            color: white;
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #c41e3a;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="k">K</span>rypton
+                </div>
+                <div class="contact-info">
+                    <div>📧 fahad_design@yahoo.com</div>
+                    <div>📱 +91 98601 53853</div>
+                    <div>🌐 kryptonenterprises.com</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Printing & Business Solutions</h1>
+                <p>From digital printing to office furniture - we've got your business covered</p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🖨️ Printing Services</h3>
+                    <p>Complete printing solutions including digital printing, offset printing, screen printing, DTF, laser printing, and wide format printing for all your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🎁 Gifting Solutions</h3>
+                    <p>Custom corporate gifts and promotional items to help you make lasting impressions with clients and employees.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🪑 Office Furniture</h3>
+                    <p>Premium office chairs and furniture solutions to create comfortable and productive workspaces for your team.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📈 Trading Services</h3>
+                    <p>Business trading solutions and partnerships to help expand your market reach and opportunities.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💼 Consultancy</h3>
+                    <p>Expert business consultancy services to help optimize your operations and achieve your business goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Products We Offer</h2>
+            <div class="products-grid">
+                <div class="product-card" onclick="showModal('Brochure/Pamphlet', 'High-quality brochures and pamphlets for marketing and promotional purposes. Professional design and premium printing quality guaranteed.')">
+                    <span class="product-icon">📄</span>
+                    <h3>Brochure/Pamphlet</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Wire/Spiral Diary', 'Durable wire-bound and spiral diaries perfect for daily planning and note-taking. Available in various sizes and formats.')">
+                    <span class="product-icon">📓</span>
+                    <h3>Wire/Spiral Diary</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Calendars', 'Custom calendars for businesses and personal use. Wall calendars, desk calendars, and pocket calendars available.')">
+                    <span class="product-icon">📅</span>
+                    <h3>Calendars</h3>
+                </div>
+                <div class="product-card" onclick="showModal('T-shirt/Cap', 'Custom printed t-shirts and caps for corporate branding, events, and promotional campaigns.')">
+                    <span class="product-icon">👕</span>
+                    <h3>T-shirt/Cap</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Backdrop/Banners', 'Professional backdrops and banners for events, exhibitions, and promotional displays.')">
+                    <span class="product-icon">🎪</span>
+                    <h3>Backdrop/Banners</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Vinyl Backdrop Print', 'High-quality vinyl backdrop printing for photography, events, and permanent displays.')">
+                    <span class="product-icon">🖼️</span>
+                    <h3>Vinyl Backdrop Print</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Chairs', 'Premium office chairs designed for comfort and productivity. Ergonomic designs with quality materials.')">
+                    <span class="product-icon">🪑</span>
+                    <h3>Chairs</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Standee/Sunboard', 'Portable standees and sunboard displays perfect for exhibitions, retail environments, and presentations.')">
+                    <span class="product-icon">📋</span>
+                    <h3>Standee/Sunboard</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Gifts/Goodies', 'Corporate gifts and promotional goodies including mugs, pens, and branded merchandise.')">
+                    <span class="product-icon">🎁</span>
+                    <h3>Gifts/Goodies</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Diaries', 'Professional diaries and planners for business and personal organization. Various binding and size options.')">
+                    <span class="product-icon">📔</span>
+                    <h3>Diaries</h3>
+                </div>
+                <div class="product-card" onclick="showModal('Stationery', 'Complete stationery solutions including letterheads, business cards, envelopes, and office supplies.')">
+                    <span class="product-icon">✏️</span>
+                    <h3>Stationery</h3>
+                </div>
+                <div class="product-card" onclick="showModal('And More...', 'We offer many additional products and services. Contact us to discuss your specific requirements and custom solutions.')">
+                    <span class="product-icon">➕</span>
+                    <h3>And More...</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>fahad_design@yahoo.com<br>kryptonenterprises2024@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>+91 98601 53853</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Website</h3>
+                    <p>kryptonenterprises.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Krypton Enterprises. All rights reserved. | Professional Printing & Business Solutions</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('productModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        function showModal(title, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .product-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.service-card, .product-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+        });
+
+        // Add floating animation to hero elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const hero = document.querySelector('.hero-content');
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            hero.addEventListener('mousemove', function(e) {
+                mouseX = (e.clientX - window.innerWidth / 2) * 0.01;
+                mouseY = (e.clientY - window.innerHeight / 2) * 0.01;
+                
+                hero.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            });
+            
+            hero.addEventListener('mouseleave', function() {
+                hero.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Add hover effect to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #fff 0%, #f8f9fa 100%)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'white';
+            });
+        });
+
+        // Add click feedback to CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px)';
+            }, 150);
+        });
+
+        console.log('Krypton Enterprises Website Loaded Successfully! 🚀');
+    </script>
+</body>
+</html>
